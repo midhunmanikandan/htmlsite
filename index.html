@@ -22,8 +22,8 @@
                     Your love makes ordinary days feel safe, bright, and beautiful.
                 </p>
                 <div class="actions">
-                    <a class="button" href="#message">Read my message</a>
-                    <button class="button secondary" type="button" onclick="showLove()">Send love</button>
+                    <a class="button" id="readBtn" href="#message" onclick="toggleButtons(event)">Read my message</a>
+                    <button class="button secondary" id="loveBtn" type="button" onclick="showLove(event)" style="display:none;">Send love</button>
                 </div>
             </div>
 
@@ -65,8 +65,23 @@
     <script>
         let isLoveMessageShown = false;
 
-        function showLove() {
+        function toggleButtons(event) {
+            event.preventDefault();
+            const readBtn = document.getElementById("readBtn");
+            const loveBtn = document.getElementById("loveBtn");
+            
+            readBtn.style.display = "none";
+            loveBtn.style.display = "inline-flex";
+            
+            // Scroll to the message
+            document.getElementById("message").scrollIntoView({ behavior: "smooth" });
+        }
+
+        function showLove(event) {
+            event.preventDefault();
             const note = document.querySelector(".note");
+            const readBtn = document.getElementById("readBtn");
+            const loveBtn = document.getElementById("loveBtn");
             
             if (isLoveMessageShown) {
                 // Change back to original message
@@ -84,6 +99,14 @@
             }, 300);
             
             isLoveMessageShown = !isLoveMessageShown;
+            
+            // Toggle back to read message button after showing love
+            if (isLoveMessageShown) {
+                setTimeout(() => {
+                    loveBtn.style.display = "none";
+                    readBtn.style.display = "inline-flex";
+                }, 2000);
+            }
         }
     </script>
 </body>
