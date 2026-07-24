@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Mother's Day</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="page">
+        <section class="hero">
+            <div>
+                <span class="tag">For the heart of our home</span>
+                <h1>Happy Mother's Day, Amma</h1>
+                <p class="subtitle">
+                    Thank you for every hug, every prayer, every smile, and every quiet sacrifice.
+                    Your love makes ordinary days feel safe, bright, and beautiful.
+                </p>
+                <div class="actions">
+                    <a class="button" href="#message">Read my message</a>
+                    <button class="button secondary" type="button" onclick="showLove()">Send love</button>
+                </div>
+            </div>
+
+            <div class="portrait" aria-label="A handmade flower bouquet illustration">
+                <div class="bouquet">
+                    <span class="flower one"></span>
+                    <span class="flower two"></span>
+                    <span class="flower three"></span>
+                    <span class="flower four"></span>
+                </div>
+                <div class="note" id="message">
+                    <strong>Dear Amma,</strong>
+                    You are my first teacher, my strongest support, and my favorite blessing.
+                    I hope this day gives back a little of the happiness you give every day.
+                </div>
+            </div>
+        </section>
+
+        <section class="memories" aria-label="Mother's Day wishes">
+            <article class="memory">
+                <h2>Your Care</h2>
+                <p>You notice the small things, remember what matters, and make everyone feel loved.</p>
+            </article>
+            <article class="memory">
+                <h2>Your Strength</h2>
+                <p>You face every day with patience and courage, and you teach me to do the same.</p>
+            </article>
+            <article class="memory">
+                <h2>Your Smile</h2>
+                <p>Your smile can make the whole house feel warmer. Today is for celebrating you.</p>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        Made with love for the most special mother.
+    </footer>
+
+    <script>
+        function showLove() {
+            const note = document.querySelector(".note");
+            note.innerHTML = "<strong>Love you, Amma!</strong>You are the reason home feels like home. Happy Mother's Day!";
+        }
+    </script>
+</body>
+</html>

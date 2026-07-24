@@ -1,0 +1,288 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    font-family: "Roboto", Arial, sans-serif;
+    color: #3e2f2f;
+    background:
+        radial-gradient(circle at 15% 18%, rgba(255, 210, 218, 0.8), transparent 26%),
+        radial-gradient(circle at 84% 10%, rgba(255, 238, 181, 0.75), transparent 24%),
+        linear-gradient(135deg, #fff8f4 0%, #ffe3e1 45%, #f7efe3 100%);
+}
+.page {
+    width: min(1120px, calc(100% - 32px));
+    margin: 0 auto;
+    padding: 32px 0;
+}
+
+.hero {
+    min-height: calc(100vh - 64px);
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+    gap: 44px;
+}
+
+.tag {
+    display: inline-block;
+    margin-bottom: 18px;
+    padding: 9px 16px;
+    border: 1px solid rgba(116, 68, 68, 0.22);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.55);
+    font-family: Arial, sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #8d4d4d;
+}
+
+h1 {
+    max-width: 720px;
+    font-size: clamp(3rem, 8vw, 6.8rem);
+    line-height: 0.95;
+    color: #6f3838;
+}
+
+.subtitle {
+    max-width: 620px;
+    margin-top: 24px;
+    font-family: Arial, sans-serif;
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    line-height: 1.8;
+    color: #5f4a4a;
+}
+
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 30px;
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 0 22px;
+    border: 0;
+    border-radius: 8px;
+    background: #9f4d57;
+    color: white;
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: 0 14px 30px rgba(126, 63, 73, 0.22);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.button.secondary {
+    background: rgba(255, 255, 255, 0.72);
+    color: #7a4248;
+    box-shadow: none;
+    border: 1px solid rgba(122, 66, 72, 0.22);
+}
+
+.button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 18px 34px rgba(126, 63, 73, 0.28);
+}
+
+.portrait {
+    position: relative;
+    min-height: 560px;
+    display: grid;
+    place-items: center;
+}
+
+.bouquet {
+    position: relative;
+    width: min(430px, 86vw);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background:
+        radial-gradient(circle at 50% 55%, #fff7f1 0 18%, transparent 19%),
+        radial-gradient(circle at 34% 33%, #e9858d 0 9%, transparent 10%),
+        radial-gradient(circle at 61% 25%, #f6b5ba 0 10%, transparent 11%),
+        radial-gradient(circle at 73% 48%, #d66c7b 0 9%, transparent 10%),
+        radial-gradient(circle at 30% 60%, #f4a3a5 0 11%, transparent 12%),
+        radial-gradient(circle at 55% 70%, #c9566a 0 10%, transparent 11%),
+        radial-gradient(circle at 44% 45%, #ffd3a8 0 8%, transparent 9%),
+        linear-gradient(150deg, #fffaf8, #ffd4d6);
+    box-shadow: 0 30px 80px rgba(129, 67, 67, 0.25);
+}
+
+.bouquet::before,
+.bouquet::after {
+    content: "";
+    position: absolute;
+    inset: 16%;
+    border: 2px solid rgba(122, 71, 71, 0.16);
+    border-radius: 50%;
+}
+
+.bouquet::after {
+    inset: 28%;
+    border-color: rgba(255, 255, 255, 0.65);
+}
+
+.flower {
+    position: absolute;
+    width: 86px;
+    height: 86px;
+    border-radius: 50%;
+    background:
+        radial-gradient(circle, #fff2be 0 18%, transparent 19%),
+        radial-gradient(circle at 50% 5%, #dc6c7a 0 28%, transparent 29%),
+        radial-gradient(circle at 95% 50%, #dc6c7a 0 28%, transparent 29%),
+        radial-gradient(circle at 50% 95%, #dc6c7a 0 28%, transparent 29%),
+        radial-gradient(circle at 5% 50%, #dc6c7a 0 28%, transparent 29%);
+    animation: float 4s ease-in-out infinite;
+}
+
+.flower.one {
+    top: 9%;
+    left: 13%;
+}
+
+.flower.two {
+    right: 10%;
+    top: 19%;
+    transform: scale(0.85);
+    animation-delay: 0.6s;
+}
+
+.flower.three {
+    right: 18%;
+    bottom: 14%;
+    transform: scale(1.08);
+    animation-delay: 1.2s;
+}
+
+.flower.four {
+    left: 16%;
+    bottom: 18%;
+    transform: scale(0.78);
+    animation-delay: 1.8s;
+}
+
+.note {
+    position: absolute;
+    right: 0;
+    bottom: 34px;
+    width: min(315px, 78vw);
+    padding: 24px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.86);
+    box-shadow: 0 20px 48px rgba(102, 67, 67, 0.17);
+    font-family: Arial, sans-serif;
+    line-height: 1.65;
+    color: #5c4545;
+}
+
+.note strong {
+    display: block;
+    margin-bottom: 8px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.35rem;
+    color: #7d3f48;
+}
+
+.memories {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    padding: 24px 0 48px;
+}
+
+.memory {
+    min-height: 180px;
+    padding: 24px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.64);
+    border: 1px solid rgba(117, 78, 78, 0.14);
+    font-family: Arial, sans-serif;
+    line-height: 1.65;
+}
+
+.memory h2 {
+    margin-bottom: 10px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.45rem;
+    color: #783f46;
+}
+
+footer {
+    padding: 22px 0 12px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    color: #745757;
+}
+
+@keyframes float {
+    0%, 100% {
+        translate: 0 0;
+    }
+
+    50% {
+        translate: 0 -12px;
+    }
+}
+
+@media (max-width: 840px) {
+    .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        padding-top: 26px;
+    }
+
+    .portrait {
+        min-height: 420px;
+    }
+
+    .note {
+        right: 50%;
+        bottom: 0;
+        transform: translateX(50%);
+    }
+
+    .memories {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 520px) {
+    .page {
+        width: min(100% - 22px, 1120px);
+        padding: 20px 0;
+    }
+
+    h1 {
+        font-size: clamp(2.55rem, 16vw, 4.2rem);
+    }
+
+    .actions {
+        display: grid;
+    }
+
+    .button {
+        width: 100%;
+    }
+
+    .portrait {
+        min-height: 390px;
+    }
+
+    .flower {
+        width: 62px;
+        height: 62px;
+    }
+}
