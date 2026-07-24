@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy Mother's Day</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
 </head>
 <body>
     <main class="page">
@@ -60,7 +65,12 @@
     <script>
         function showLove() {
             const note = document.querySelector(".note");
-            note.innerHTML = "<strong>Love you, Amma!</strong>You are the reason home feels like home. Happy Mother's Day!";
+            note.innerHTML = "<strong>Love you, Amma!</strong> You are the reason home feels like home. Happy Mother's Day!";
+            note.style.background = "rgba(255, 182, 193, 0.9)";
+            note.style.transform = "scale(1.05)";
+            setTimeout(() => {
+                note.style.transform = "scale(1)";
+            }, 300);
         }
     </script>
 </body>
