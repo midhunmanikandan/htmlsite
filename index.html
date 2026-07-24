@@ -63,14 +63,27 @@
     </footer>
 
     <script>
+        let isLoveMessageShown = false;
+
         function showLove() {
             const note = document.querySelector(".note");
-            note.innerHTML = "<strong>Love you, Amma!</strong> You are the reason home feels like home. Happy Mother's Day!";
-            note.style.background = "rgba(255, 182, 193, 0.9)";
+            
+            if (isLoveMessageShown) {
+                // Change back to original message
+                note.innerHTML = "<strong>Dear Amma,</strong> You are my first teacher, my strongest support, and my favorite blessing. I hope this day gives back a little of the happiness you give every day.";
+                note.style.background = "rgba(255, 255, 255, 0.86)";
+            } else {
+                // Show love message
+                note.innerHTML = "<strong>Love you, Amma!</strong> You are the reason home feels like home. Happy Mother's Day!";
+                note.style.background = "rgba(255, 182, 193, 0.9)";
+            }
+            
             note.style.transform = "scale(1.05)";
             setTimeout(() => {
                 note.style.transform = "scale(1)";
             }, 300);
+            
+            isLoveMessageShown = !isLoveMessageShown;
         }
     </script>
 </body>
