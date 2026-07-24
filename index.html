@@ -22,8 +22,8 @@
                     Your love makes ordinary days feel safe, bright, and beautiful.
                 </p>
                 <div class="actions">
-                    <a class="button" id="readBtn" href="#message" onclick="toggleButtons(event)">Read my message</a>
-                    <button class="button secondary" id="loveBtn" type="button" onclick="showLove(event)" style="display:none;">Send love</button>
+                    <a class="button" href="#message" onclick="showMessage(event)">Read my message</a>
+                    <button class="button secondary" type="button" onclick="showLove(event)">Send love</button>
                 </div>
             </div>
 
@@ -63,50 +63,35 @@
     </footer>
 
     <script>
-        let isLoveMessageShown = false;
+        const originalMessage = "<strong>Dear Amma,</strong> You are my first teacher, my strongest support, and my favorite blessing. I hope this day gives back a little of the happiness you give every day.";
+        const loveMessage = "<strong>Love you, Amma!</strong> You are the reason home feels like home. Happy Mother's Day!";
 
-        function toggleButtons(event) {
+        function showMessage(event) {
             event.preventDefault();
-            const readBtn = document.getElementById("readBtn");
-            const loveBtn = document.getElementById("loveBtn");
+            const note = document.querySelector(".note");
+            note.innerHTML = originalMessage;
+            note.style.background = "rgba(255, 255, 255, 0.86)";
+            note.style.transform = "scale(1.05)";
+            setTimeout(() => {
+                note.style.transform = "scale(1)";
+            }, 300);
             
-            readBtn.style.display = "none";
-            loveBtn.style.display = "inline-flex";
-            
-            // Scroll to the message
+            // Scroll to message
             document.getElementById("message").scrollIntoView({ behavior: "smooth" });
         }
 
         function showLove(event) {
             event.preventDefault();
             const note = document.querySelector(".note");
-            const readBtn = document.getElementById("readBtn");
-            const loveBtn = document.getElementById("loveBtn");
-            
-            if (isLoveMessageShown) {
-                // Change back to original message
-                note.innerHTML = "<strong>Dear Amma,</strong> You are my first teacher, my strongest support, and my favorite blessing. I hope this day gives back a little of the happiness you give every day.";
-                note.style.background = "rgba(255, 255, 255, 0.86)";
-            } else {
-                // Show love message
-                note.innerHTML = "<strong>Love you, Amma!</strong> You are the reason home feels like home. Happy Mother's Day!";
-                note.style.background = "rgba(255, 182, 193, 0.9)";
-            }
-            
+            note.innerHTML = loveMessage;
+            note.style.background = "rgba(255, 182, 193, 0.9)";
             note.style.transform = "scale(1.05)";
             setTimeout(() => {
                 note.style.transform = "scale(1)";
             }, 300);
             
-            isLoveMessageShown = !isLoveMessageShown;
-            
-            // Toggle back to read message button after showing love
-            if (isLoveMessageShown) {
-                setTimeout(() => {
-                    loveBtn.style.display = "none";
-                    readBtn.style.display = "inline-flex";
-                }, 2000);
-            }
+            // Scroll to message
+            document.getElementById("message").scrollIntoView({ behavior: "smooth" });
         }
     </script>
 </body>
